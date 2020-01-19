@@ -7,6 +7,11 @@ For older change log history see the [historic changelog](HISTORIC_CHANGELOG.md)
 
 ## [Unreleased]
 
+### Added
+
+- SqlServerDsc
+  - Add new resource SqlServerAudit.
+
 ### Changed
 
 - SqlServerDsc
