@@ -33,6 +33,7 @@ stages:
           - pwsh: |
               $path = './source/DSCResources/DSC_SqlSetup/readme.md'
               ls $path
+              Write-Verbose -Message ($PWD | Out-String) -Verbose
               Write-Verbose -Message (Test-Path $path) -Verbose
               Write-Verbose -Message (Get-Item -Path $path -EA SilentlyContinue | Out-String) -Verbose
               Write-Verbose -Message (Get-ChildItem -Path $path | Where-Object -FilterScript { $_.Name -like 'readme.md' }) -Verbose
