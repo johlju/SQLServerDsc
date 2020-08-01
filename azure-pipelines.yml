@@ -35,6 +35,11 @@ stages:
               ls $path
               Write-Verbose -Message (Test-Path $path) -Verbose
               Write-Verbose -Message (Get-Item -Path $path -EA SilentlyContinue | Out-String) -Verbose
+              Write-Verbose -Message (Get-ChildItem -Path $mofSchemaFile.DirectoryName |
+            Where-Object -FilterScript {
+                $_.Name -like 'readme.md'
+            }) -Verbose
+
           - task: PowerShell@2
             name: package
             displayName: 'Build & Package Module'
