@@ -32,10 +32,12 @@ stages:
               configFilePath: 'GitVersion.yml'
           - pwsh: |
               $root = './source/DSCResources/DSC_SqlSetup'
-              $path = './source/DSCResources/DSC_SqlSetup/README.md'
+              $root2 = './source/DSCResources/DSC_SqlSetup/*'
+              $path = './source/DSCResources/DSC_SqlSetup/readme.md'
               ls $root
               Write-Verbose -Message ($PWD | Out-String) -Verbose
               Write-Verbose -Message (Test-Path $path) -Verbose
+              Write-Verbose -Message (Test-Path $root2 -Filter 'readme.md') -Verbose
               Write-Verbose -Message (Get-Item -Path $path -EA SilentlyContinue | Out-String) -Verbose
               Write-Verbose -Message (Get-ChildItem -Path $root | Where-Object -FilterScript { $_.Name -like 'readme.md' }) -Verbose
           - task: PowerShell@2
